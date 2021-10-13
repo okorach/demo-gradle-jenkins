@@ -23,7 +23,6 @@ pipeline {
             if (qg.status != 'OK') {
               echo "Gradle component quality gate failed: ${qg.status}, proceeding anyway"
             }
-            sh 'rm -f comp-gradle/build/sonar/report-task.txt'
           }
         }
       }
