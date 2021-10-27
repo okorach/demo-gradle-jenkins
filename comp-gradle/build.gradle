@@ -10,7 +10,7 @@ version = '1.0'
 
 sonarqube {
     properties {
-        property 'sonar.projectName', 'GitHub w/ Jenkins - Gradle'
+        property 'sonar.projectName', 'GitHub / Jenkins / Gradle'
         property 'sonar.projectKey', 'demo:github-jenkins-gradle'
     }
 }
