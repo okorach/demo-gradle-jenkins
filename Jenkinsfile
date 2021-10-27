@@ -1,3 +1,5 @@
+projectKey = "demo:github-jenkins-gradle"
+tags = "github,jenkins,gradle"
 pipeline {
   agent any
   stages {
@@ -10,7 +12,11 @@ pipeline {
       steps {
         withSonarQubeEnv('SQ Latest') {
           script {
-            sh 'cd comp-gradle; ./gradlew jacocoTestReport sonarqube'
+            sh """
+              cd comp-gradle
+              ./gradlew jacocoTestReport sonarqube
+              curl -X POST -u $SONAR_TOKEN: \"$SONAR_HOST_URL/api/project_tags/set?project=${projectKey}&tags=${tags}\"
+            """
           }
         }
       }
